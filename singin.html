@@ -11,11 +11,9 @@
     <link href="css/nomalize.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/doc.css" rel="stylesheet">
-    <!-- 포토갤러리: 모달 윈도우를 fancybox 라이브러리를 이용하여 처리- jquery.fancybox.css 파일 링크  -->
-    <link href="css/jquery.fancybox.css" rel="stylesheet">
    <!--Stylesheet-->
    <link rel="stylesheet" href="css/custom.css">
-   <link rel="stylesheet" href="css/fonts.css">
+   <!--<link rel="stylesheet" href="css/fonts.css">-->
     <!-- Fontawesome css -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
@@ -23,21 +21,10 @@
  <body>
  
 <!--header design-->
- <div class="header">
-  <div class="container">
-      <div class="row">
-         <div class="col-md-2 block"></div>
-         <div class="col-md-2"></div>
-         <div class="col-md-2 block"></div>
-         <div class="col-md-2"></div>
-         <div class="col-md-2 block"></div>
-         <div class="col-md-2"></div>
-      </div>
-  </div>
-</div>
+
 
  
-<!--register body-->
+<!--signin body-->
     <div class="signup-content">
         <div class="container">
           <!--logo-->
@@ -47,26 +34,22 @@
            <div class="row">
             <!--form (서버 연동시 수정)-->
             <form action="">
-                <div class="formbox col-sm-12">
-                <label for="email">E-mail
+                <div class="formbox form-group">
+                <label for="email">E-Mail
                 <input type="email" id="emailInputSignin" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required="" oninvalid="this.setCustomValidity('유효한 이메일을 입력하세요')" oninput="setCustomValidity('')"/></label>
                 </div>
-                <div class="formbox col-sm-12">
+                <div class="formbox form-group">
                 <label for="password">Password
-                <input type="password" placeholder="Password" title="숫자와 영문자를 이용하여 8자리 이상으로 입력해주세요" pattern="(?=.*[0-9])(?=.*[A-Za-z]).{8,}" required=""/></label>
-                </div>
-                <div class="formbox col-sm-12">
-                <label for="name">Name
-                <input type="text" name="name" placeholder="Name" pattern=".{,8}" required=""/></label>
-                </div>
-                 <!--register button-->
-                <div class="row">
-                <button class="btn" type="submit" name="submit"><span class="glyphicon glyphicon-arrow-right"></span><span class="btn-name">Register</span></button>
+                <input type="password" id="passwordInputSignin" placeholder="Password" title="숫자와 영문자를 이용하여 8자리 이상으로 입력해주세요" pattern="(?=.*[0-9])(?=.*[A-Za-z]).{8,}" required=""/></label>
+              </div>
+              <!--signin button-->
+              <div class="row">
+              <button class="btn" type="submit" name="submit"><span class="glyphicon glyphicon-arrow-right"></span><span class="btn-name">Sign in</span></button>
             </div>
             </form>
             </div>
-           
-            <hr>
+            
+            <hr/>
              <!--copyright-->
              <div class="row">
                  <div class="copyright col-md-12">
@@ -93,13 +76,10 @@
     <script src="js/jquery.fancybox.js"></script>
     <script>
     $(document).ready(function(){
-   
         $(".btn").on('click',function(){
             /* submit을 눌렀을때 동작 선언*/
             $('.glyphicon').css("text-shadow","0px 1px #000000");
-   
         })
-        
     })
     </script>
  </body>
