@@ -1,0 +1,13 @@
+@charset "UTF-8"
+/* 서버 등록 이후 재코딩 */
+@font-face{
+    font-family: 'HoboStd';
+    src: local(※),
+        url('Polar-final-exam/css/fonts/HoboStd.eot') format('eot'),
+        url('Polar-final-exam/css/fonts/HoboStd.woff') format('woff'),
+        url('Polar-final-exam/css/fonts/HoboStd.ttf') format('ttf');
+}
+
+#logo{
+    font-family: 'HoboStd';
+}

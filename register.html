@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko-kr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Polar' - Your life, it's masterpiece for others</title>
+    
+   <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href="css/nomalize.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/doc.css" rel="stylesheet">
+    <!-- 포토갤러리: 모달 윈도우를 fancybox 라이브러리를 이용하여 처리- jquery.fancybox.css 파일 링크  -->
+    <link href="css/jquery.fancybox.css" rel="stylesheet">
+   <!--Stylesheet-->
+   <link rel="stylesheet" href="css/custom.css">
+   <link rel="stylesheet" href="css/fonts.css">
+    <!-- Fontawesome css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  </head>
+  
+ <body>
+ 
+<!--header design-->
+ <div class="header">
+  <div class="container">
+      <div class="row">
+         <div class="col-md-2 block"></div>
+         <div class="col-md-2"></div>
+         <div class="col-md-2 block"></div>
+         <div class="col-md-2"></div>
+         <div class="col-md-2 block"></div>
+         <div class="col-md-2"></div>
+      </div>
+  </div>
+</div>
+
+ 
+<!--register body-->
+    <div class="signup-content">
+        <div class="container">
+          <!--logo-->
+        <header>
+        <h3 id="logo">Polar'</h3>
+        </header>
+           <div class="row">
+            <!--form (서버 연동시 수정)-->
+            <form action="">
+                <div class="formbox form-group">
+                <label for="email">E-Mail</label>
+                <input type="email" id="emailInputSignin" placeholder="Email" required>
+                </div>
+                <div class="formbox form-group">
+                <label for="password">Password</label>
+                <input type="password" id="passwordInputSignin" placeholder="Password" pattern=".*" required>
+                <input type="checkbox" value="보이기">
+                </div>
+                <div class="formbox form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" placeholder="Name">
+                </div>
+               <div class="formbox">
+                <label for=""></label>
+              </div>
+             
+            </form>
+            </div>
+            <!--register button-->
+            <div class="row">
+            <button class="btn" type="submit" name="submit"><span class="glyphicon glyphicon-arrow-right"></span><span class="btn-name">Register</span></button>
+            </div>
+            <hr>
+             <!--copyright-->
+             <div class="row">
+                 <div class="copyright col-md-12">
+                 Copyright@ ss_won_
+                 </div>
+             </div>
+        
+        </div><!--end container-->
+        
+       
+    </div>
+ <!--footer design-->
+ <div>
+     
+ </div>
+   
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.1.0.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- jquery.fancybox.js -->
+    <script src="js/jquery.fancybox.js"></script>
+    <script>
+    $(document).ready(function(){
+        $(".btn").on('click',function(){
+            /* submit을 눌렀을때 동작 선언*/
+            $('.glyphicon').css("text-shadow","0px 1px #000000");
+        })
+    })
+    </script>
+ </body>
+ 
+</html>
