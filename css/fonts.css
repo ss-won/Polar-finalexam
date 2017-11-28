@@ -3,9 +3,9 @@
 @font-face{
     font-family: 'HoboStd';
     src: local(※),
-        url('HoboStd.eot') format('eot'),
-        url('HoboStd.woff') format('woff'),
-        url('HoboStd.ttf') format('ttf');
+        url('fonts/HoboStd.eot') format('eot'),
+        url('fonts/HoboStd.woff') format('woff'),
+        url('fonts/HoboStd.ttf') format('ttf');
 }
 
 #logo{

@@ -33,11 +33,6 @@ header{
     margin-bottom: 50px;
 }
 
-header#top {
-    background-image: url(https://secure.photobox.com/assets/content_graphics/54/30954.jpg?1428924333);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 .formbox label {
     position: relative;
     left:-10px;
@@ -46,7 +41,7 @@ header#top {
 .formbox input{
 }
 
-button,button i, span {
+button, button span {
     background-color: #F7B7CE;
 }
 
