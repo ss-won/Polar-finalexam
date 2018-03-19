@@ -1,0 +1,89 @@
+
+/*Custrom CSS : signin,register,index*/
+
+
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body#page-top{
+    font-size: 2.0em;
+    text-align: center;
+    padding: 0px;
+}
+
+section{
+    text-align: center;
+}
+
+li{
+    list-style: none;
+    display: inline;
+}
+
+li a{
+    text-decoration: none;
+}
+
+header{
+    margin-bottom: 0px;
+}
+
+.formbox label {
+    position: relative;
+    left:-10px;
+}
+
+.formbox input{
+}
+
+button, button span {
+    background-color: #F7B7CE;
+}
+
+button.sign-in i{
+    position: relative;
+    opacity: 0;
+    left:-20px;
+    transition: all 0.2s ease-in-out;
+}
+
+button.sign-in:hover i{
+    opacity: 0.6;
+    left:24px;
+    transition-delay: 0.2s;
+    width:13px;
+}
+
+
+button span.btn-name{
+  position: relative;
+  left:-6.5px;
+}
+
+button:hover span.btn-name{
+  opacity: 0;
+}
+
+ul.another{
+margin-left: -40px;
+}
+
+ul.another li {
+    margin: 4px;
+    font-size:1em;
+}
+
+ul.another li > a.another {font-size: 0.7em;}
+
+footer{
+    background-color: #212529;
+}
+.copyright{
+    color:#686767;
+    font-size:0.4em;
+    padding:10px;
+    
+}                                                                                                                                                                                                                                                                                                                                                       

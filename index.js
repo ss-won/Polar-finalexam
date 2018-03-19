@@ -1,38 +1,64 @@
-/* 기본 모듈 추가 */
-var http = require('http'),
-  express = require('express'),
-  path = require('path');
+/* index.html(메인 프로그램) 
+- 파일 구조를 전형적인 MVC 패턴에 맞춤
+*/
 
-/* Express의 미들웨어 */
-var bodyParser = require('body-parser');
-var static = require('serve-static');
+// 필요 모듈 참조
+const express = require('express');
+const mongoose = require('mongoose');
+const expressSession = require('express-session');
+const passport = require('passport');
+const flash = require('connect-flash');
+const fs = require('fs');
 
-var router = express.Router();
+/* 모델 일괄 등록을 위한 모듈 */
+const join = require('path').join;//파일 경로 조인
+const models = join(__dirname, 'app/models');// 'app/models' 경로 설정
 
-//var hostname = '192.168.0.11';
-var port = '3000';
+/* 익스프레스 객체 생성 */
+const app = express();
 
-var app = express();
+/* 몽고디비연결 포트 번호 설정 */
+const port = 3000;
 
-// 서버 설정(포트 선택)
-app.set('port',process.env.PORT || port);
-//body-parser를 이용한 url, json 파일 파싱
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+/* 몽고디비연결 
+    MONGO_URI=mongodb://localhost:27017/<db-name>
+*/
+mongoose.connect('mongodb://localhost:27017/UserDB');
 
-app.use(static(__dirname));
+console.log('call : index.js');
+
+/* models 폴더에 있는 모든 파일을  일괄등록(require) 처리*/
+// filter() 메서드 : 조건에 만족하는 요소만 뽑아 새로운 배열 생성
+fs.readdirSync(models)
+  //.filter(file => ~file.search(/^[^\.].*\.js$/))//정규식 패턴에 일치하는 문자열을 찾아 반환
+  .filter(file => ~file.indexOf('.js'))//".js"을포함하는 파일을 찾으면 truly 값 반환  
+  .forEach(file => require(join(models, file)));
+/* 간편하게 사용법
+   - require('./app/models/student');
+   - require('./app/models/uploads');
+*/
+
+// 세션 설정
+app.use(expressSession({
+	secret:'my key',
+	resave:true,
+	saveUninitialized:true
+}));
+/*===== Passport 사용 설정 =====*/
+// Passport의 세션을 사용할 때는 그 전에 Express의 세션을 사용하는 코드가 있어야 함
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 
-//미들웨어 작동 선언
-app.use(function(req,res,next){
-    console.log('미들웨어 작동');
-    
-    res.writeHead('200',{'Content-Type':'text/html;charset=utf8'});
-    res.end();
-});
+
+/* config 폴더에 있는 express와 routes 설정파일 적용 */
+require('./config/express')(app);
+require('./config/routes')(app);
+require('./config/passport')(app,passport);
 
 
-//서버 생성
-http.createServer(app).listen(port,function(){
-    console.log('Express 서버가  %d번 포트에서 시작됨',port);
+/* 익스프레스 서버 시작 */
+app.listen(port, () => {
+	console.log('Sever running on port : %s', port);
 });

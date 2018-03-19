@@ -1,0 +1,90 @@
+<!--header navigation-->   
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/" target="_self" id="logo">Polar'</a>
+        <button class="navbar-toggler navbar-toggler-right btn-lg" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-bars fa-2x"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/" >Home</a>
+            </li>
+            {{#if login_success}} 
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/polarphoto/:{{User._id}}">Polar'Photo</a>
+            </li>
+            {{/if}}
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">ABOUT/Contact</a>
+            </li>
+          </ul>
+         {{#if login_success}}  
+          <a class="btn sign" href="/signout">Sign Out</a>
+          {{else}}
+          <a class="btn sign" href="/signin">Sign in</a>
+          {{/if}}
+        </div>
+      </div>
+    </nav>
+    
+    <!--들어갈 컨텐츠 내용입니다-->
+  <!--header section-->
+    <header class="masthead" style="padding-top:50px; padding-bottom:20px;">
+       <div class="container">
+           <div class="intro-text row">
+             <div class="intro-heading col-md-12 col-xs-12">
+             Your life, it's masterpiece for others
+             <h5 style="padding:10px;">자신의 사진첩을 만들어 공유해보세요</h5>
+             {{#if login_success }}
+             <a class="btn btn-warning" href="/polarphoto" style="text-shadow:none">시작하기</a>
+             {{else}}
+             <a class="js-scroll-trigger" href="#body"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+             {{/if}}
+             </div>
+           </div> 
+       </div>
+    </header>
+      
+    <!--Body-->
+    <section class="bg-light" id="body">
+  <div class="container">
+            <div class="row">
+             <table class="col-md-12 text-center">
+              <tr>
+                  <td>
+                  <form action="">
+                  <input type="text" name="search" placeholder="#태그검색"/>
+                    <button class="btn btn-search" type="submit">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                    </form>
+                  </td>
+
+              </tr>
+          </table>
+          </div>
+        </div>
+<table class="table table-bordered">
+
+	<thead>
+	<tr>
+		<th>태그</th>
+		<th>사진</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+	{{#each students}}<!-- 핸들바의 루프 템플릿으로 내부에서는 실행 컨텍스트가 바뀜 --> 
+		<tr>
+			<td>{{this.name}}</td>
+			<td>{{this.rtag}}</td>
+			<td style="width:20px;">
+				<a class="btn btn-default" href="/show/{{this._id}}">보기</a>
+			</td>
+		</tr>
+	{{/each}}
+	</tbody>
+
+</table>
+</section>

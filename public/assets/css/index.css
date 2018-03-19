@@ -1,0 +1,40 @@
+/* Header 영역*/
+.navbar{
+    background-color: #d7382a;
+    text-align: center;
+}
+
+.navbar .navbar-brand{
+    color:#FFF;
+    font-family:'Noto Sans Korean', sans-serif;
+}
+
+.navbar-deco{
+    background-color: #bb2d2d;
+    height:25px;
+    color:#ce8079;
+    
+}
+
+.navbar .navbar-header .navbar-add{
+    float:right;
+    margin-right:20px;
+}
+.navbar .navbar-header .navbar-add i{
+    font-size:25px;
+    color:#FFF;
+    margin-top:15px;
+}
+.navbar .navbar-header .btn-default{
+    margin-top: 8px;
+    float: right;
+    margin-right: 13px;
+}
+
+
+/* table 영역 */
+
+table th{
+    text-align: center;
+    font-family:'Noto Sans Korean', sans-serif;
+}

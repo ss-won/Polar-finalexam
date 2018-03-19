@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/* 서버 등록 이후 재코딩 */
+@font-face{
+    font-family: 'HoboStd';
+    src: local(※),
+        url('/assets/fonts/HoboStd.eot') format('eot'),
+        url('/assets/fonts/HoboStd.woff') format('woff'),
+        url('/assets/fonts/HoboStd.ttf') format('ttf');
+    font-weight:400;
+    font-style:normal;
+}
+
+@font-face {
+  font-family: 'THEAlien';
+  src: url('/assets/fonts/THEAlien.woff') format('woff'),
+       url('/assets/fonts/THEAlien.ttf') format('truetype'),
+       url('/assets/fonts/THEAlien.svg#THEAlien') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'THE_Oegyeinseolmyeongseo';
+  src: url('/assets/fonts/THE_Oegyeinseolmyeongseo.eot');
+  src: url('/assets/fonts/THE_Oegyeinseolmyeongseo.woff2') format('woff2'),
+       url('/assets/fonts/THE_Oegyeinseolmyeongseo.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+#logo{
+    font-family: 'HoboStd';
+    font-weight: 600;
+}
+
+*{
+    font-family: 'THEAlien';
+    font-size: 1.0em;
+}

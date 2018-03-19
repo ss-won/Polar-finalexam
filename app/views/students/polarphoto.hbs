@@ -1,0 +1,106 @@
+<!--header navigation-->   
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#212529;">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/" target="_self" id="logo">Polar'</a>
+        <button class="navbar-toggler navbar-toggler-right btn-lg" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-bars fa-2x"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/" >Home</a>
+            </li>
+            {{#if user}} 
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/polarphoto/:{{user._id}}" target="_self" id="polarphoto">Polar'Photo</a>
+            </li>
+            {{/if}}
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">ABOUT/Contact</a>
+            </li>
+          </ul>
+         {{#if user}}  
+          <a class="btn sign" href="/signout">Sign Out</a>
+          {{else}}
+          <a class="btn sign" href="/signin">Sign in</a>
+          {{/if}}
+        </div>
+      </div>
+    </nav>
+    
+    <section class="info" style="margin-top:30px;margin-bottom:-10px">
+    <div class="container">
+        <div class="row">
+               <div class="col-md-12" style="font-size:0.8em">
+              <span style="color:#F7B7CE">{{user.name}}</span>의 Polar'photo
+              </div>
+              <div class="col-md-12" style="font-size:0.6em">
+              사진을 추가하려면 버튼을 누르십시오
+              </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+             <form action="/uploads" method="post">
+             <div class="col-md-12">
+             <input type="file" name="files" class="form-control-file" id="orgFile" aria-describedby="fileHelp" style="display:none" accept="image/*" multiple/>
+				<a href="javascript:" class="my_button" onclick="check()">
+                <i class="fa fa-plus-square fa-3x" aria-hidden="true"></i>
+                </a>
+             </div>
+             
+              <div class="row">
+                  <div class="col-md-12" id="holder">
+                        
+                  </div>
+                  <div class="col-md-12">
+                 <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">#</span>
+  <input type="text" name=hashtags class="form-control" placeholder="태그입력" aria-label="# 제외하고 입력" aria-describedby="basic-addon1" required="true">
+</div>
+                  </div>
+               
+                 </div>
+                <button class="btn btn-outline-warning btn-lg col-md-3 my_button" type="submit" name="submit">업로드</button>
+                </form>
+          </div>
+    </div>
+        </div>
+    </section>
+    
+    
+    <section class="bg-light" id="body">
+    <div class="container">
+        
+ <div class="col-md-12">
+        
+    <div id="accordion" role="tablist">
+    {{#each userphotos}}
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="">
+           #{{userphotos.rtag}}
+        </a>
+      </h5>
+    </div>
+     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        {{userphotos.photo}}
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
+</div>
+          
+        </div>
+
+</section>
+
+  <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded js-scroll-trigger top" href="#body">
+      <i class="fa fa-angle-up"></i>
+    </a> 
+
+
+
