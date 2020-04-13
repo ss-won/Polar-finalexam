@@ -1,4 +1,4 @@
-# 초기설정
+# 사진일기 웹어플리케이션
 
 
 ## 들어가기에 앞서
@@ -17,7 +17,8 @@
 - only - object중 원하는 데이터만 sorting하여 return하는 helper 패키지
 - path
 
-##MVC 패턴
+## MVC 패턴
+- MVC 패턴을 이용하였다.
 
 
 
