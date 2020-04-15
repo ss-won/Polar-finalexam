@@ -7,7 +7,7 @@
 
 ## Dependencies
 
-- body-parser :
+- body-parser : API요청에서 받은 body값을 파싱하는 역할을 수행하는 미들웨어
 - express : express를 사용하기 위한 모듈(node.js 서버구축에서 대표적)
 - express-handlebars : 뷰엔진(view tempalte)을 사용하기 위한 모듈
 - mongoose : MongoDB의 데이터를 ODM(Object Document Mapping)화 시켜주는 모듈로 데이터를 자바스크립트 객체화 시켜준다.
@@ -22,10 +22,6 @@
 ## MVC 패턴
 - MVC 패턴을 이용하였다.(2017년 경에는 나름 많이 쓰였지만, 최근에는 react의 flux(redux), vue의 MVVM을 많이들 쓰더라,,)
 <img src="https://mblogthumb-phinf.pstatic.net/MjAxNzAzMjVfMjIg/MDAxNDkwNDM4ODMzNjI2.nzDNB5K0LuyP4joE2C4rIbL5Ue2F3at7wiI6ZpuTJN0g.WZ6V-WHZygLYW2WSdzcs7uAiAWgAJe3_H0XdkYKkutkg.PNG.jhc9639/1262.png?type=w800" alt="MVC"/>
-
-
-
-
 
 
 
