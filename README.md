@@ -6,15 +6,21 @@
 
 
 ## Dependencies
+- dotenv : 환경변수관리를 위한 패키지
+- nodemon : 파일의 변경이 일어날 경우 자동으로 재시작하는 패키지(유사품: superviser)
 
+- fs : 파일시스템을 이용하기 위한 기본 모듈(Node)
+- path : 경로를 파싱해오는 기본 모듈(Node)
 - body-parser : API요청에서 받은 body값을 파싱하는 역할을 수행하는 미들웨어
 - express : express를 사용하기 위한 모듈(node.js 서버구축에서 대표적)
 - express-handlebars : 뷰엔진(view tempalte)을 사용하기 위한 모듈
+
 - mongoose : MongoDB의 데이터를 ODM(Object Document Mapping)화 시켜주는 모듈로 데이터를 자바스크립트 객체화 시켜준다.
-- nodemon : 파일의 변경이 일어날 경우 자동으로 재시작하는 패키지(유사품: superviser)
 - only : object중 원하는 데이터만 sorting하여 return하는 helper 패키지
 - multer : express에서 제공하는 파일 업로드용 미들웨어
-- connect-flash : 화면이 전환될때 메세지를 전달하기 위한 미들웨어
+
+- connect-flash : 화면이 전환될때 콘솔창에 메세지를 전달하기 위한 미들웨어
+- ctypto : 계정비밀번호 암호화를 위한 모듈
 - passport : Node.js의 로그인 기능의 인증을 Stratgy기법으로 간편히 해주는 미들웨어
   - passport-local : http에서 대표적으로 authentication에 쓰이는 Session, Cookie로 유효성을 검증하는 Stratgy 방식 
   - passport-facebook : facebook api를 이용한 간편로그인 방식
