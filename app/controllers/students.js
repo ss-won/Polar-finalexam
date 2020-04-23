@@ -20,14 +20,14 @@ exports.index = function (req, res) {
         // 인증 안된 경우
         if (!req.user) {
             console.log('사용자 인증 안된 상태임.');
-            res.render('students/index', {login_success:false, user:req.user});
+            res.render('others/index', {login_success:false, user:req.user});
         } else {
             console.log('사용자 인증된 상태임.');
-            res.render('students/index', {login_success:true, user:req.user});
+            res.render('others/index', {login_success:true, user:req.user});
         }
 
    // Userphoto.list(function (Userphoto) {
-        //res.render('students/index', {//뷰 템플릿 랜더링(템플릿:index.hbs)
+        //res.render('others/index', {//뷰 템플릿 랜더링(템플릿:index.hbs)
            // Userphoto: Userphoto,//students 객체를 템플릿에 바인딩
         //});
         //});
@@ -39,7 +39,7 @@ exports.index = function (req, res) {
 exports.show = function (req, res) {
 
     Userphoto.load(req.params.id, function (Userphoto) {
-        res.render('students/show', {//뷰 템플릿 랜더링(템플릿:show.hbs)
+        res.render('others/show', {//뷰 템플릿 랜더링(템플릿:show.hbs)
             Userphoto: Userphoto//student 객체를 템플릿에 바인딩
         });
     });
@@ -48,24 +48,24 @@ exports.show = function (req, res) {
 
 //로그인을 위한 form을 view를 통해 파싱
 exports.signin = function(req,res){
-    res.render('students/signin',{error: req.flash('error') ,login_success:false});
+    res.render('others/signin',{error: req.flash('error') ,login_success:false});
 }
 
 //회원가입을 위한 form을 view를 통해 파싱
 exports.register = function(req,res){
-    res.render('students/register',{error: req.flash('error'),login_success:false});
+    res.render('others/register',{error: req.flash('error'),login_success:false});
 }
 //페이지 전환을 위한 form을 view를 통해 파싱
 exports.polarphoto = function(req,res){
     Userphoto.load(req.params.id,function(Userphoto){
-        res.render('students/polarphoto',{
+        res.render('others/polarphoto',{
             Userphoto : Userphoto,login_success:true,user:req.user
         })
     })
 };
 //사용자 등록을 form을 view를 통해 파싱
 exports.create = function (req, res) {
-    res.render('students/create');//뷰 템플릿 랜더링(템플릿:create.hbs)
+    res.render('others/create');//뷰 템플릿 랜더링(템플릿:create.hbs)
 };
 
 exports.uploads = function(req,res){
@@ -96,7 +96,7 @@ exports.uploads = function(req,res){
 
             });
         }
-       res.render('students/uploads',{Upload:Upload,login_success:true,user:req.user});
+       res.render('others/uploads',{Upload:Upload,login_success:true,user:req.user});
 }
 
 
@@ -150,7 +150,7 @@ exports.store = function (req, res) {
 // 개별 사용자에 대한 정보를 view의 form에 출력
 exports.edit = function (req, res) {
     Userphoto.load(req.params.id, function (Userphoto) {
-        res.render('students/edit', {//뷰 템플릿 랜더링(템플릿:edit.hbs)
+        res.render('others/edit', {//뷰 템플릿 랜더링(템플릿:edit.hbs)
             Userphoto : userphotos//student 객체를 템플릿에 바인딩
         });
     });

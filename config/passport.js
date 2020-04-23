@@ -21,6 +21,6 @@ module.exports = function(app,passport){
         });
     passport.use('local-signin',local_signin);
     passport.use('local-register',local_register);
-    passport.use('facebook',facebook(app,passport));
-    passport.use('google',google(app,passport));
+    //passport.use('facebook',facebook(app,passport));
+    //passport.use('google',google(app,passport));
 };

@@ -1,10 +1,10 @@
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const config = require('../config');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 
 module.exports = function(app,passport){
     return new GoogleStrategy({
+        /*
         clientID : config.google.clientID,
         clientSecret : config.google.clientSecret,
         callbackURL : config.google.callbackURL,
@@ -43,6 +43,6 @@ module.exports = function(app,passport){
 			}
         })
             return done(null,profile);
-      
+      */
     })
-}*/
+}

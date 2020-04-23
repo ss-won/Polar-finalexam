@@ -9,6 +9,8 @@ const expressSession = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
 const fs = require('fs');
+// 환경변수 가져오기
+require('dotenv').config();
 
 /* 모델 일괄 등록을 위한 모듈 */
 const join = require('path').join;//파일 경로 조인
@@ -17,13 +19,20 @@ const models = join(__dirname, 'app/models');// 'app/models' 경로 설정
 /* 익스프레스 객체 생성 */
 const app = express();
 
-/* 몽고디비연결 포트 번호 설정 */
-const port = 3000;
 
-/* 몽고디비연결 
-    MONGO_URI=mongodb://localhost:27017/<db-name>
-*/
-mongoose.connect('mongodb://localhost:27017/UserDB');
+
+/*===========몽고디비연결===========*/
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}, (err) => {
+  if (err)
+    console.log(err);
+  else
+    console.log("MongoDB is now connected");
+});
+/*=============end=============*/
 
 console.log('call : index.js');
 
@@ -42,7 +51,8 @@ fs.readdirSync(models)
 app.use(expressSession({
 	secret:'my key',
 	resave:true,
-	saveUninitialized:true
+  saveUninitialized:true,
+  maxAge: 36000
 }));
 /*===== Passport 사용 설정 =====*/
 // Passport의 세션을 사용할 때는 그 전에 Express의 세션을 사용하는 코드가 있어야 함
@@ -59,6 +69,6 @@ require('./config/passport')(app,passport);
 
 
 /* 익스프레스 서버 시작 */
-app.listen(port, () => {
-	console.log('Sever running on port : %s', port);
+app.listen(process.env.PORT, () => {
+	console.log('Sever running on port : %s', process.env.PORT);
 });

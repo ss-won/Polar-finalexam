@@ -1,10 +1,10 @@
 const FacebookStrategy = require('passport-facebook').Strategy;
-const config = require('../config');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 
 module.exports = function(app,passport){
     return new FacebookStrategy({
+        /*
         clientID : config.facebook.clientID,
         clientSecret : config.facebook.clientSecret,
         callbackURL : config.facebook.callbackURL,
