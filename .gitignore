@@ -2,5 +2,4 @@
 *.DS_Store
 node_modules/*
 database
-config/aws.js
-config/config/js
+.env
