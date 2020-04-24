@@ -5,7 +5,7 @@
 // 필요 모듈 참조
 const express = require('express');
 const mongoose = require('mongoose');
-const expressSession = require('express-session');
+const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
 const fs = require('fs');
@@ -48,7 +48,7 @@ fs.readdirSync(models)
 */
 
 // 세션 설정
-app.use(expressSession({
+app.use(session({
 	secret:'my key',
 	resave:true,
   saveUninitialized:true,

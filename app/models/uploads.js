@@ -17,12 +17,11 @@ console.log('call : uploads.js');
 const UploadSchema = new Schema({
 	//relatedId: { type : Schema.ObjectId }, 
     //외래키(students 컬렉션 ObjectId ) 형식으로 데이터를 맵핑시킴,
-    userid: {type:Schema.ObjectId ,ref:'User'},
+   userid: {type:Schema.ObjectId ,ref:'User'},
+   uri: {type: String},
 	type: { type : String },
-    tags: { type : Array ,required:true},
-    rtag: { type: String },
+   tags: { type : Array , required:true},
 	filename: { type : String },
-	originalname: { type : String},
 	size: { type : Number },
 	createdAt  : { type : Date, default : Date.now }
 });
@@ -34,7 +33,7 @@ const UploadSchema = new Schema({
 */
 UploadSchema.path('userid').required(true, 'Article title cannot be blank');
 UploadSchema.path('filename').required(true, 'Article body cannot be blank');
-UploadSchema.path('originalname').required(true, 'Article body cannot be blank');
+UploadSchema.path('uri').required(true, 'Article body cannot be blank');
 UploadSchema.path('size').required(true, 'Article body cannot be blank');
 
 
