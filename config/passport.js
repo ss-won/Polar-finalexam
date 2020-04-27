@@ -19,6 +19,7 @@ module.exports = function(app,passport){
         console.dir(user);
         done(null,user);
         });
+        
     passport.use('local-signin',local_signin);
     passport.use('local-register',local_register);
     //passport.use('facebook',facebook(app,passport));

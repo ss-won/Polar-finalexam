@@ -6,13 +6,8 @@
 const c_user = require('../app/controllers/user_access');
 const c_photo = require('../app/controllers/uptoS3');
 const s3Api = require('./multer');
-const aws = require('aws-sdk');
-//const multer = require('multer');
-const multerS3 = require('multer-s3');
 const path = require('path');
-const mongoose = require('mongoose');
 const passport = require('passport');
-//const config = require('config');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 

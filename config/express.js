@@ -4,18 +4,39 @@
 
 /* 필요 모듈 참조 */
 const express = require('express');
+const session = require('express-session');
 const exphbs = require('express-handlebars');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const path = require('path');
-const bodyParser = require('body-parser');
+const passport = require('passport');
+const flash = require('connect-flash');
 
 console.log('call : express.js');
 
 /* index.js 파일에서 "app"을 인자로 받음 */
 module.exports = function (app) {
-	app.use(bodyParser.json());
-	app.use(bodyParser.urlencoded({
-		extended: true
+	//body-parser
+	app.use(express.json());
+	app.use(express.urlencoded({extended: true}));
+	//cookie-parser
+	app.use(cookieParser());
+	//morgan
+	app.use(logger('dev'));
+
+	// 세션 설정
+	app.use(session({
+		secret: 'my key',
+		resave: true,
+		saveUninitialized: true,
+		maxAge: 600000 //10min
 	}));
+
+	/*===== Passport 사용 설정 =====*/
+	// Passport의 세션을 사용할 때는 그 전에 Express의 세션을 사용하는 코드가 있어야 함
+	app.use(passport.initialize());
+	app.use(passport.session());
+	app.use(flash());
 
     //Resource 용으로 사용할 static router 정의
 	app.use(express.static('public')); 

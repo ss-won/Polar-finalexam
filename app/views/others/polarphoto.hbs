@@ -34,35 +34,19 @@
                <div class="col-md-12" style="font-size:0.8em">
               <span style="color:#F7B7CE">{{user.name}}</span>의 Polar'photo
               </div>
-              <div class="col-md-12" style="font-size:0.6em">
-              사진을 추가하려면 버튼을 누르십시오
+              <div class="col-md-12">
+                <img src="" alt="" id="pre">
               </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
              <form action="/upload/:{{user.name}}" method="post" enctype="multipart/form-data">
-             <div class="col-md-12">
-             <input type="file" name="img" class="form-control-file" id="orgFile" aria-describedby="fileHelp" style="display:none" accept="image/*" multiple/>
-				        <a href="javascript:" class="my_button" onclick="check()">
-                <i class="fa fa-plus-square fa-3x" aria-hidden="true"></i>
-                </a>
-             </div>
-             
-              <div class="row">
-                  <div class="col-md-12" id="holder">
-                        
-                  </div>
-                  <!--<div class="col-md-12">
-                    <div class="input-group">
-                      <span class="input-group-addon" id="basic-addon1">#</span>
-                      <input type="text" name=hashtags class="form-control" placeholder="태그입력" aria-label="# 제외하고 입력" aria-describedby="basic-addon1" required="true">
-                    </div>
-                  </div>
-                  -->
-                 </div> 
-                <button class="btn btn-outline-warning btn-lg col-md-3 my_button" type="submit" name="submit">업로드</button>
-                </form>
-          </div>
+              <div class="col-md-12">
+                <label>사진을 추가하려면 버튼을 누르십시오</label>
+                <input type="file" name="img" class="form-control-file" accept="image/*" multiple/>
+              </div>
+              <button class="btn btn-outline-warning btn-lg col-md-3 my_button" type="submit">업로드</button>
+              </form>
+        </div>
     </div>
         </div>
     </section>

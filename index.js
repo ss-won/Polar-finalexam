@@ -5,9 +5,7 @@
 // 필요 모듈 참조
 const express = require('express');
 const mongoose = require('mongoose');
-const session = require('express-session');
 const passport = require('passport');
-const flash = require('connect-flash');
 const fs = require('fs');
 // 환경변수 가져오기
 require('dotenv').config();
@@ -40,26 +38,12 @@ console.log('call : index.js');
 // filter() 메서드 : 조건에 만족하는 요소만 뽑아 새로운 배열 생성
 fs.readdirSync(models)
   //.filter(file => ~file.search(/^[^\.].*\.js$/))//정규식 패턴에 일치하는 문자열을 찾아 반환
-  .filter(file => ~file.indexOf('.js'))//".js"을포함하는 파일을 찾으면 truly 값 반환  
+  .filter(file => file.indexOf('.js'))//".js"을포함하는 파일을 찾으면 truly 값 반환  
   .forEach(file => require(join(models, file)));
 /* 간편하게 사용법
    - require('./app/models/student');
    - require('./app/models/uploads');
 */
-
-// 세션 설정
-app.use(session({
-	secret:'my key',
-	resave:true,
-  saveUninitialized:true,
-  maxAge: 36000
-}));
-/*===== Passport 사용 설정 =====*/
-// Passport의 세션을 사용할 때는 그 전에 Express의 세션을 사용하는 코드가 있어야 함
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
-
 
 
 /* config 폴더에 있는 express와 routes 설정파일 적용 */

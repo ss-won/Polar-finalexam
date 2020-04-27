@@ -6,12 +6,15 @@ aws.config.update({
     secretAccessKey: process.env.aws_secret_access_key,
     region: process.env.aws_region
 });
+
+//s3 객체 생성
 let s3 = new aws.S3();
 
 var path = require('path');
 var uuid = require('uuid/v4');
 
 module.exports = {
+    //S3에 사진 업로드를 위한 모듈(Multer-S3 객체)
     upload: multer({
         storage: multerS3({
             s3: s3,
@@ -22,7 +25,7 @@ module.exports = {
                 let extension = path.extname(file.originalname);
                 cb(null, uuid() + Date.now().toString() + extension);
             },
-            acl: 'public-read-write'
+            acl: 'public-read'
         })
     })
 };
