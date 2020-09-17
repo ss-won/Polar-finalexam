@@ -5,8 +5,13 @@
 ## OUTPUT
 
 ### 화면
+
+<div align="center">
+  
 ##### Main
 ![](https://media.vlpt.us/images/ss-won/post/a3f7ffac-9825-4480-8e1b-1dec2f3fc3d5/image.png)
+
+</div>
 
 ##### Login
 <div align="center">
